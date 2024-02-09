@@ -1,0 +1,53 @@
+body, #root {
+ 	height: 100vh;
+}
+
+@keyframes slide {
+	from {
+		margin-top: -20%;
+		width: 300%;
+	}
+}
+@keyframes my-animation {to { visibility:hidden; } }
+
+@-webkit-keyframes my-animation {to { visibility:hidden; } }
+
+.blinking-red-dot {
+	animation: my-animation 1s steps(3, start) infinite;
+	-webkit-animation: my-animation 1s steps(3, start) infinite;
+	background-color: #ea693e;
+	height: 12pt;
+	width: 12pt;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.slide1 {
+	animation-duration: 3s;
+	animation-name: slide;
+}
+
+.slide2 {
+	animation-duration: 3s;
+	animation-delay: 1s;
+	animation-name: slide;
+}
+
+
+.blinking1 {
+	animation: my-animation 1s steps(3, start) infinite;
+	-webkit-animation: my-animation 1s steps(6, start) infinite;
+}
+
+.blinking2 {
+	animation: my-animation 1s steps(2, start) infinite;
+	-webkit-animation: my-animation 1s steps(4, start) infinite;
+}
+
+.blinking3 {
+	animation-name:  my-animation;
+  	animation-timing-function: steps(2, start);
+	animation-duration: 500ms;
+  	animation-iteration-count: 5;
+}
+

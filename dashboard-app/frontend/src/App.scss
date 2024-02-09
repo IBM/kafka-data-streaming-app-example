@@ -1,0 +1,5 @@
+@use './components/MainHeader/main_header';
+@use '@carbon/react' with (
+  $use-flexbox-grid: true
+);
+
