@@ -30,7 +30,7 @@ The example includes three components: the random number emitter service, the da
 $ cd dashboard-app/backend
 $ mvnw spring-boot:run
 
-The default port is 8080. Verify that it's running by checking http://localhost:8080
+The default port is 8080
 ~~~
 
 3 Start dashboard-app/frontend
