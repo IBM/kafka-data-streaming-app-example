@@ -20,10 +20,10 @@ public class EmittingDataService {
 	private volatile  boolean stopFlag = false;
 	private ExecutorService executor;
 	
-	private Emitter mitter;
+	private Emitter emitter;
 	
 	private Supplier<String> _emittingTask = () -> {
-		mitter.emitData(() -> stopFlag);
+		emitter.emitData(() -> stopFlag);
 		return "The emitting task has finished";
 	};
 	
@@ -35,7 +35,7 @@ public class EmittingDataService {
 	
 	public EmittingDataService(Emitter emitter)
 	{
-		this.mitter = emitter;
+		this.emitter = emitter;
 		executor = Executors.newFixedThreadPool(3);
 	}
 
@@ -65,7 +65,7 @@ public class EmittingDataService {
 			executor.shutdownNow();
 		}
 		
-		mitter.close();
+		emitter.close();
 	}
 	
 	/**Set stopFlag to true to signal all threads to stop	**/
