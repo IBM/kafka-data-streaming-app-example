@@ -5,6 +5,8 @@
 
 package example.rne.admin;
 
+import java.util.function.Consumer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,9 +19,16 @@ public class EmittingServiceCommandHandler implements CommandHandler {
 	private final static Logger log = LoggerFactory.getLogger(EmittingServiceCommandHandler.class);
 	
 	private EmittingDataService emittingDataService;
+	private SystemLogger systemLogger = new DefaultSystemLogger();;
 
-	public EmittingServiceCommandHandler(EmittingDataService emittingDataService) {
+	/**
+	 * @param emittingDataService required
+	 * @param systemLogger can be null. If null, DefaultSystemLogger will be used **/
+	public EmittingServiceCommandHandler(EmittingDataService emittingDataService, SystemLogger systemLogger) {
 		this.emittingDataService = emittingDataService;
+		
+		if(systemLogger != null)
+			this.systemLogger = systemLogger;
 	}
 
 	@Override
@@ -40,7 +49,11 @@ public class EmittingServiceCommandHandler implements CommandHandler {
 		else if(Command.COMMAND_START.equalsIgnoreCase(strCommand)){
 			log.info("Trying starting...");
 			try {
-				emittingDataService.startAsync((s) -> log.info("Finished. The status returned from the task: " + s));
+				Consumer<String> onFinish = (s) -> {
+					log.info("Finished. The status returned from the task: " + s);
+				};
+				
+				emittingDataService.startAsync(onFinish);
 			}catch (TaskStartException e) {
 				log.warn(e.getMessage());
 			}

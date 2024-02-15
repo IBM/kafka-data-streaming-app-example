@@ -21,7 +21,7 @@ public class RandomIntegerEmitterTest {
     @Test
     void requestStop() {
         MockProducer<String, String> mockProducer = createMockProducer(true);
-    	RandomIntegerEmitter integerEmitter = new RandomIntegerEmitter(TEST_TOPIC_NAME, mockProducer);
+    	RandomIntegerKafkaProducer integerEmitter = new RandomIntegerKafkaProducer(TEST_TOPIC_NAME, mockProducer);
     	
     	//try 10 times
     	int n = 10;
@@ -38,7 +38,7 @@ public class RandomIntegerEmitterTest {
     @Test
     void emitANumber() {
         MockProducer<String, String> mockProducer = createMockProducer(true);
-    	RandomIntegerEmitter integerEmitter = new RandomIntegerEmitter(TEST_TOPIC_NAME, mockProducer);
+    	RandomIntegerKafkaProducer integerEmitter = new RandomIntegerKafkaProducer(TEST_TOPIC_NAME, mockProducer);
     	
     	integerEmitter.emitData(() -> {
     		if (integerEmitter.getCount() >= 1)

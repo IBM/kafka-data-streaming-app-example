@@ -15,15 +15,15 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RandomIntegerEmitter implements Emitter{
-	private final Logger log = LoggerFactory.getLogger(RandomIntegerEmitter.class);
+public class RandomIntegerKafkaProducer implements Emitter{
+	private final Logger log = LoggerFactory.getLogger(RandomIntegerKafkaProducer.class);
 
 	private Producer<String, String> kafkaProducer;
 	private String kafKaTopic;
 	
 	private int count = 0;
 	
-	public RandomIntegerEmitter(String kafKaTopic) {
+	public RandomIntegerKafkaProducer(String kafKaTopic) {
 		Properties props = KafkaPropertiesBuilder.createProducerBuilder()
 				.useLocalBootstrapServer()
 				.build();
@@ -34,7 +34,7 @@ public class RandomIntegerEmitter implements Emitter{
 	}
 	
 	//this constructor might be useful for testing
-	public RandomIntegerEmitter(String kafKaTopic, Producer<String, String> kafkaProducer) {
+	public RandomIntegerKafkaProducer(String kafKaTopic, Producer<String, String> kafkaProducer) {
 		this.kafkaProducer = kafkaProducer;
 		this.kafKaTopic = kafKaTopic;
 	}
