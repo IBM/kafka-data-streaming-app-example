@@ -28,6 +28,10 @@ public class Command {
 		this.time = time;
 	}
 	
+	public String toString() {
+		return String.format("{user: \"%s\", command: \"%s\", time: \"%s\"}", user, command, time);
+	}
+	
 	public String getUser() {
 		return user;
 	}
