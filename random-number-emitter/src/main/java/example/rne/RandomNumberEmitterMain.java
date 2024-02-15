@@ -29,10 +29,11 @@ public class RandomNumberEmitterMain {
 		//For now we have only RandomIntegerKafkaProducer in this example. 
 		//However in the future we may have another types of Emitter, for example let say RandomDecimalEmitter
 		Emitter emitter = new RandomIntegerKafkaProducer(RandomNumberEmitterMain.RANDOM_NUMBERS_TOPIC_NAME);
-		
 		EmittingDataService emittingDataService = EmittingDataService.createInstance(emitter);
+		
 		SystemLogger systemLogger = SystemLogKafkaProducer.createInstance(SYSTEM_LOG_TOPIC_NAME);
-		CommandHandler commandHandler = new EmittingServiceCommandHandler(emittingDataService, systemLogger);
+
+		CommandHandler commandHandler = EmittingServiceCommandHandler.createInstance(emittingDataService, systemLogger);
 		
 		log.info("Start listenning on the command topic (%s)...", RandomNumberEmitterMain.COMMAND_TOPIC_NAME);
 		CommandListener commandListener = CommandListener.getInstance();

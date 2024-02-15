@@ -41,10 +41,9 @@ public class RandomIntegerKafkaProducer implements Emitter{
 
 	@Override
 	public void emitData(Supplier<Boolean> requestStop){
-		log.info("Start generating and emitting random numbers to Kafka...");
+		log.info("Generating and emitting random numbers to Kafka...");
 		Random random = new Random();
 		try {
-			
 			//if 'true' is returned from the function requestStop, then stop the emitting loop
 			while (!requestStop.get()) {
 				//a random integer from 0 to 99

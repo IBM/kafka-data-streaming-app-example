@@ -11,7 +11,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +28,9 @@ public class EmittingDataService {
 	
 	private CompletableFuture<Void> _completableFutureEmittingTask;
 
+	/**
+	 * @param emittingDataService required
+	 * @param systemLogger can be null. If null, DefaultSystemLogger will be used **/
 	public static EmittingDataService createInstance(Emitter emitter) {
 		return new EmittingDataService(emitter);  
 	}
