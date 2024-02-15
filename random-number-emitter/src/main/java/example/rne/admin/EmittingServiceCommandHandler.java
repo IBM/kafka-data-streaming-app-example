@@ -47,6 +47,7 @@ public class EmittingServiceCommandHandler implements CommandHandler {
 		
 		if(Command.COMMAND_STOP.equalsIgnoreCase(strCommand) || Command.COMMAND_SHUTDOWN.equalsIgnoreCase(strCommand))
 		{
+			systemLogger.log("The Emitting Service has received a stop request by the command: " + command.toString());
 			emittingDataService.signalStop();
 			log.info("Requested to stop ...");
 		}
@@ -57,7 +58,7 @@ public class EmittingServiceCommandHandler implements CommandHandler {
 			try {
 				Consumer<String> onFinish = (s) -> {
 					log.info("Finished. The status returned from the task: " + s);
-					systemLogger.log("The Emitting Service has been stopped as requested by the command: " + command.toString());
+					systemLogger.log("The Emitting Service has been stopped as requested");
 				};
 				
 				emittingDataService.startAsync(onFinish);
