@@ -13,12 +13,12 @@ import com.google.gson.Gson;
 import example.rne.EmittingDataService;
 import example.rne.TaskStartException;
 
-public class CommandHandlerImpl implements CommandHandler {
-	private final static Logger log = LoggerFactory.getLogger(CommandHandlerImpl.class);
+public class EmittingServiceCommandHandler implements CommandHandler {
+	private final static Logger log = LoggerFactory.getLogger(EmittingServiceCommandHandler.class);
 	
 	private EmittingDataService emittingDataService;
 
-	public CommandHandlerImpl(EmittingDataService emittingDataService) {
+	public EmittingServiceCommandHandler(EmittingDataService emittingDataService) {
 		this.emittingDataService = emittingDataService;
 	}
 

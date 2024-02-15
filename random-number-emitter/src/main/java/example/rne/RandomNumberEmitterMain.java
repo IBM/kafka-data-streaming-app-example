@@ -8,7 +8,7 @@ package example.rne;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import example.rne.admin.CommandHandler;
-import example.rne.admin.CommandHandlerImpl;
+import example.rne.admin.EmittingServiceCommandHandler;
 import example.rne.admin.CommandListener;
 
 public class RandomNumberEmitterMain {
@@ -28,7 +28,7 @@ public class RandomNumberEmitterMain {
 		
 		EmittingDataService emittingDataService = EmittingDataService.createInstance(emitter);
 
-		CommandHandler commandHandler = new CommandHandlerImpl(emittingDataService);
+		CommandHandler commandHandler = new EmittingServiceCommandHandler(emittingDataService);
 		
 		log.info("Start listenning on the command topic (%s)...", RandomNumberEmitterMain.COMMAND_TOPIC_NAME);
 		CommandListener commandListener = CommandListener.getInstance();
