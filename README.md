@@ -8,7 +8,7 @@ This project should be used for learning or demonstration purposes
 
 ####  Overview
 
-The repository contains an example of an application which generate and publish random numbers to Kafka. And then read those numbers from Kafka and display them via as a web-based dashboard. 
+The repository contains an example of an application which generates and publishes random numbers to Kafka. And then read those numbers from Kafka and display them via as a web-based dashboard. 
 
 The example includes three components: the random number emitter service, the dashboard backend, and the dashboard frontend. The fronend is a ReactJS-based web application, it doesn't communicate with Kafka directly, instead it will receive data via the dashboard backend using Server-Sent Events (SSE). The random number emitter service is written in Java using Kafka Clients API directly. While the other dashboard backend is based on Spring framework, and uses the spring-kafka library.
 
