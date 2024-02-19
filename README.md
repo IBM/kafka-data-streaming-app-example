@@ -68,7 +68,7 @@ $ <Your Kafka install dir>/bin/kafka-console-producer.sh --bootstrap-server loca
 $ cd notification-service
 $ mvnw spring-boot:run
 
-The default port is 8081
+Port: 8082
  ~~~
 
 
