@@ -14,6 +14,8 @@ The example includes the components: the random number emitter service, the dash
 
 ![Architecture Diagram](misc/architecture.jpg)
 
+![Architecture Diagram](misc/event-driven-architecture.jpg)
+
 #### Prerequisites
 
 - Kafka (for how to setup and run Kafka, refer to https://kafka.apache.org/quickstart)
@@ -57,6 +59,16 @@ $ mvnw clean compile exec:java
 ~~~
 $ <Your Kafka install dir>/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic number-emitter-admin-topic
 # Try entering the value 'start' or 'stop' to control random-number-emitter
+ ~~~
+ 
+ 
+ 6 (Optional) Run the Notification Service
+ 
+ ~~~
+$ cd notification-service
+$ mvnw spring-boot:run
+
+The default port is 8081
  ~~~
 
 
