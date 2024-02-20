@@ -28,7 +28,7 @@ const MainHeader = () => (
       <Header aria-label="Kafka Demo">
         <SkipToContent />
         <HeaderName as={Link} to="/" prefix="Kafka">
-         Streamming App. Example<IbmCloudEventStreams style={{marginLeft: '10pt'}} />
+         Streaming App. Example<IbmCloudEventStreams style={{marginLeft: '10pt'}} />
         </HeaderName>
         <HeaderNavigation aria-label=" Kafka Demo">
           <HeaderMenuItem as={Link} to="/">
