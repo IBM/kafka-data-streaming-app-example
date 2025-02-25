@@ -19,4 +19,4 @@ notification:
       senders: example.notification.senders.SlackSender, example.notification.senders.EmailSender
    slack:
       channel: demo
-      token: ${SLACK_APP_TOKEN}
+      token: ${SLACK_APP_TOKEN} # to obtain a token, go to https://api.slack.com/apps
