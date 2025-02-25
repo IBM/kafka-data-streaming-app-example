@@ -71,6 +71,7 @@ $ mvnw spring-boot:run
 Port: 8082
  ~~~
 
+Configuration for Slack: Go to api.slack.com/apps and generate a token, and then set the environment variable SLACK_APP_TOKEN
 
 ## Note
 
